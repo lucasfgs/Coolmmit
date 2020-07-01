@@ -1,6 +1,7 @@
+#!/usr/bin/env node
 const chalk = require("chalk");
 const figlet = require("figlet");
-const minimist = require("minimist");
+const shell = require("shelljs");
 
 const { askCommitInfo } = require("./lib/inquirer");
 const { directoryExists } = require("./lib/files");
@@ -26,13 +27,12 @@ if (!directoryExists(".git")) {
   console.log(chalk.red("You didn't initialized your git repository yet!"));
 }
 
-const args = minimist(process.argv.slice(2));
+askCommitInfo().then((commitInfo) => {
+  console.log(commitInfo);
+  let { filesToAdd, type, message } = commitInfo;
+  const icon = icons.find((icon) => icon.type == "feat");
+  if (filesToAdd == "all") filesToAdd = ".";
 
-switch (args._[0]) {
-  case "init":
-    askCommitInfo().then((commitInfo) => {
-      console.log(commitInfo);
-    });
-}
-
-// program.command("")
+  shell.exec(`git add ${filesToAdd}`);
+  shell.exec(`git commit -m "${type}: ${message} ${icon}`);
+});
