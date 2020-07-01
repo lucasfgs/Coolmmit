@@ -34,5 +34,5 @@ askCommitInfo().then((commitInfo) => {
   if (filesToAdd == "all") filesToAdd = ".";
 
   shell.exec(`git add ${filesToAdd}`);
-  shell.exec(`git commit -m "${type}: ${message} ${icon}`);
+  shell.exec(`git commit -m "${type}: ${message} ${icon.emoji}`);
 });
