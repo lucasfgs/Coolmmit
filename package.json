@@ -4,10 +4,6 @@
   "main": "index.js",
   "author": "Lucas Ferreira <blooodcf@gmail.com>",
   "license": "MIT",
-  "scripts": {
-    "start": "node cli.js",
-    "dev": "nodemon cli.js"
-  },
   "dependencies": {
     "chalk": "^4.1.0",
     "figlet": "^1.4.0",

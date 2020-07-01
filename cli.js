@@ -13,6 +13,7 @@ const icons = [
   { type: "style", emoji: ":art:" },
   { type: "refactor", emoji: ":hammer:" },
   { type: "test", emoji: ":rotating_light:" },
+  { type: "chore", emoji: ":alarm_clock:" },
 ];
 
 console.log(
@@ -30,7 +31,7 @@ if (!directoryExists(".git")) {
 askCommitInfo().then((commitInfo) => {
   console.log(commitInfo);
   let { filesToAdd, type, message } = commitInfo;
-  const icon = icons.find((icon) => icon.type == "feat");
+  const icon = icons.find((icon) => icon.type == type.toLowerCase());
   if (filesToAdd == "all") filesToAdd = ".";
 
   shell.exec(`git add ${filesToAdd}`);
