@@ -7,10 +7,22 @@
   </a>
 </p>
 
+## Install
+
+With NPM
+```sh
+  npm install --save-dev coolmmit
+```
+
+With YARN
+```sh
+  yarn add coolmmit -D
+```
+
 ## Usage
 
 ```sh
-npx coolmit
+npx coolmmit
 ```
 
 ## Author
