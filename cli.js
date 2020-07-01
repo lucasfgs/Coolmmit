@@ -29,7 +29,6 @@ if (!directoryExists(".git")) {
 }
 
 askCommitInfo().then((commitInfo) => {
-  console.log(commitInfo);
   let { filesToAdd, type, message } = commitInfo;
   const icon = icons.find((icon) => icon.type == type.toLowerCase());
   if (filesToAdd == "all") filesToAdd = ".";

@@ -1,25 +1,22 @@
 <h1 align="center">Welcome to Coolmmit 👋</h1>
 <h4 align="center">A cli that help you to standardize and make your commits cool</h4>
-<p>
+<p align="center">
   <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
   <a href="#" target="_blank">
     <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
   </a>
 </p>
 
-## Install
+## ✨ Demo
 
-With NPM
-```sh
-  npm install --save-dev coolmmit
-```
+![Coolmmit demo](demo/coolmmit.gif)
 
-With YARN
-```sh
-  yarn add coolmmit -D
-```
+How it looks on github:
+
+![Coolmmit demo](demo/github-commit.png)
 
 ## Usage
+Make sure you have npx installed (npx is shipped by default since npm 5.2.0)
 
 ```sh
 npx coolmmit
@@ -27,7 +24,7 @@ npx coolmmit
 
 ## Author
 
-👤 **Lucas Ferreira <blooodcf@gmail.com>**
+👤 **Lucas Ferreira <lucsferreira.dev@gmail.com>**
 
 
 ## Show your support
