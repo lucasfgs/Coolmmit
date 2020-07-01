@@ -1,5 +1,5 @@
 <h1 align="center">Welcome to Coolmmit 👋</h1>
-<h4 align="center">A cli that help you to standardize and make your commits cool</h4>
+<h4 align="center">A cli that help you standardize and make your commits cool</h4>
 <p align="center">
   <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
   <a href="#" target="_blank">
