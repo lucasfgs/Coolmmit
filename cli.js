@@ -25,7 +25,7 @@ console.log(
 );
 
 if (!directoryExists(".git")) {
-  console.log(chalk.red("You didn't initialized your git repository yet!"));
+  console.log(chalk.red("You didn't initialized your git repository yet"));
 }
 
 askCommitInfo().then((commitInfo) => {
