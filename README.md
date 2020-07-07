@@ -25,6 +25,12 @@ npx coolmmit
 
 ### With parameters:
 
+Example:
+
+```sh
+npx coolmmit -a hello-world.js -t feat -m "Did something"
+```
+
 - -add or -a : Add a file to tracking (same as "git add"), without this parameter all files will be added.
 - --type or -t: Type of your commit, supported types:
   - **Feat** (new feature for the user, not a new feature for build script)
