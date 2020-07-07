@@ -1,20 +1,19 @@
 #!/usr/bin/env node
 const chalk = require("chalk");
 const figlet = require("figlet");
-const shell = require("shelljs");
+const program = require("commander");
 
 const { askCommitInfo } = require("./lib/inquirer");
 const { directoryExists } = require("./lib/files");
+const { execGit } = require("./lib/shell");
+const { searchForIcon } = require("./utils/icons");
 
-const icons = [
-  { type: "feat", emoji: ":sparkles:" },
-  { type: "fix", emoji: ":bug:" },
-  { type: "docs", emoji: ":books:" },
-  { type: "style", emoji: ":art:" },
-  { type: "refactor", emoji: ":hammer:" },
-  { type: "test", emoji: ":rotating_light:" },
-  { type: "chore", emoji: ":alarm_clock:" },
-];
+program
+  .option("-a, --add <file>", 'Same as "Git add ?"')
+  .option("-t, --type <type>", "Which your commit type")
+  .option("-m, --message <msg>", "Put your commit message");
+
+program.parse(process.argv);
 
 console.log(
   chalk.blueBright(
@@ -28,11 +27,20 @@ if (!directoryExists(".git")) {
   console.log(chalk.red("You didn't initialized your git repository yet"));
 }
 
-askCommitInfo().then((commitInfo) => {
-  let { filesToAdd, type, message } = commitInfo;
-  const icon = icons.find((icon) => icon.type == type.toLowerCase());
-  if (filesToAdd == "all") filesToAdd = ".";
+if (program.type && program.message) {
+  let filesToAdd;
+  program.add ? (filesToAdd = program.add) : (filesToAdd = ".");
 
-  shell.exec(`git add ${filesToAdd}`);
-  shell.exec(`git commit -m "${type}: ${message} ${icon.emoji}`);
-});
+  execGit(
+    filesToAdd,
+    program.type,
+    program.message,
+    searchForIcon(program.type)
+  );
+} else {
+  askCommitInfo().then((commitInfo) => {
+    const { filesToAdd, type, message } = commitInfo;
+
+    execGit(filesToAdd, type, message, searchForIcon(type));
+  });
+}
