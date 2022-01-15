@@ -19,7 +19,7 @@
     "figlet": "^1.4.0",
     "files": "^2.1.0",
     "inquirer": "^7.2.0",
-    "shelljs": "^0.8.4"
+    "shelljs": "^0.8.5"
   },
   "bin": {
     "coolmmit": "./cli.js"
